@@ -16,10 +16,17 @@ export class Checkout extends SourceCheckout {
     const { checkoutStep } = this.props;
     const { url } = this.stepMap[checkoutStep];
 
-    console.log(checkoutStep);
+    // console.log(checkoutStep);
     const labelArray = ["Shipping", "Review & Payments"];
     const { currentStep } = this.state;
-    console.log(this.stepMap[currentStep]);
+    console.log(checkoutStep);
+
+    if (checkoutStep === "SHIPPING_STEP") {
+      this.setState({ currentStep: 1 });
+    }
+    if (checkoutStep === "BILLING_STEP") {
+      this.setState({ currentStep: 2 });
+    }
 
     return (
       <div className='progress'>
